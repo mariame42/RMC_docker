@@ -94,15 +94,17 @@ RUN apt update && \
     ros-jazzy-ros2-control \
     ros-jazzy-ros2-controllers \
     ros-jazzy-xacro \
+    ros-jazzy-ros-gz-*\
+    ros-jazzy-*-ros2-control\
     ros-jazzy-joint-state-publisher-gui \
     ros-jazzy-turtlesim \
     ros-jazzy-robot-localization \
     ros-jazzy-joy \
     ros-jazzy-joy-teleop \
     ros-jazzy-tf-transformations \
-    ros-jazzy-ros-gz-bridge \
-    ros-jazzy-ros-gz-sim \
-    ros-jazzy-ros-gz-gazebo \
-    ros-jazzy-diff-drive-controller \
-    ros-jazzy-forward-command-controller
+    # ros-jazzy-ros-gz-bridge \
+    # ros-jazzy-ros-gz-sim \
+    # ros-jazzy-ros-gz-gazebo \
+    # ros-jazzy-diff-drive-controller \
+    # ros-jazzy-forward-command-controller
 
