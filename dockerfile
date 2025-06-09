@@ -86,3 +86,22 @@ RUN apt-get update && apt-get install -y python3-venv && \
 # Add the venv to PATH and environment variables
 ENV PATH="/opt/venv/bin:$PATH"
 ENV VIRTUAL_ENV="/opt/venv"
+
+# -----new------
+RUN apt update && \
+    apt install python3-serial -y && \
+    apt-get update && apt-get upgrade && \
+    apt-get install terminator && \
+    apt-get install ros-jazzy-ros2-control && \
+    apt-get install ros-jazzy-ros2-controllers && \
+    apt-get install ros-jazzy-xacro && \
+    apt-get install ros-jazzy-ros-gz-* && \
+    apt-get install ros-jazzy-*-ros2-control && \
+    apt-get install ros-jazzy-joint-state-publisher-gui && \
+    apt-get install ros-jazzy-turtlesim && \
+    apt-get install ros-jazzy-robot-localization && \
+    apt-get install ros-jazzy-joy && \
+    apt-get install ros-jazzy-joy-teleop && \
+    apt-get install ros-jazzy-tf-transformations && \
+    apt-get install python3-pip && \
+    apt-get install python3-transforms3d
