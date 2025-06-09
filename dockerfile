@@ -101,7 +101,7 @@ RUN apt update && \
     ros-jazzy-robot-localization \
     ros-jazzy-joy \
     ros-jazzy-joy-teleop \
-    ros-jazzy-tf-transformations \
+    ros-jazzy-tf-transformations
     # ros-jazzy-ros-gz-bridge \
     # ros-jazzy-ros-gz-sim \
     # ros-jazzy-ros-gz-gazebo \
