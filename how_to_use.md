@@ -1,3 +1,14 @@
+two simple steps:
+sudo docker build -t mariame42/ros2_jazzy_env:arm64 .
+
+sudo docker run -it \
+  --device=/dev/ttyUSB0 \
+  --device=/dev/ttyACM0 \
+  mariame42/ros2_jazzy_env:arm64
+
+/////////////////////////////////////////////////////////////////
+
+
 docker build -t ros2_jazzy_env .
 docker run -it --name ros2_dev ros2_jazzy_env
 
@@ -57,3 +68,5 @@ source install/setup.bash
 ros2 run motor_control keyboard_control
 
 
+chmod +x install-docker.sh
+./install-docker.sh
