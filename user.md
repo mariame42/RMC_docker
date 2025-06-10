@@ -18,6 +18,7 @@ Once downloaded, you will find the following files and folders:
 - `README.md`: This guide  
 - `Dockerfile`: Defines the ROS2 environment used inside the Docker container  
 - `setup.sh`: Installs necessary software on the local machine  
+- `clone_roamio.sh`: clone the main repos for roamio
 - `notes/`  
   - `docker/`: Items or additions related to the Docker setup  
   - `script/`: Items or additions related to the setup script  
@@ -53,6 +54,17 @@ sudo docker run -it \
 ```
 
 ---
+
+---
+
+## 🔁 Step 4 Clone Roamio Repositories (Optional)
+
+To get the Roamio robot code and documentation, run the following script:
+
+```bash
+chmod +x clone_roamio.sh
+./clone_roamio.sh
+```
 
 ### VS Code Method (Dev Containers)
 
@@ -93,8 +105,26 @@ nano devcontainer.json
 }
 ```
 
+---
+
+## 🧩 Step 3: Open It in VS Code
+
+1. Open **VS Code**
+
+2. Go to:  
+   **File → Open Folder → Select `~/ros2_dev`**
+
+3. Press `F1` (or `Ctrl+Shift+P`)
+
+4. Type:  
+   **Dev Containers: Reopen in Container**
+
+5. Select that option from the dropdown
+
+
 Save the file and open the folder in VS Code. You will be prompted to reopen in the container.
 
 ---
+
 
 You're all set! This environment should give you a stable ROS2 setup tailored for your robot development needs on Raspberry Pi.

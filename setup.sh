@@ -1,5 +1,9 @@
 #!/bin/bash
 
+print_red() {
+  echo -e "\033[0;31m$1\033[0m"
+}
+
 # --------------- install git
 echo "🔧 Checking for Git..."
 if ! command -v git &>/dev/null; then
@@ -11,19 +15,6 @@ else
     echo "✅ Git is already installed."
 fi
 
-# --------------- create SSH key
-echo "🔐 Checking for existing SSH key..."
-if [ -f "$HOME/.ssh/id_ed25519.pub" ]; then
-    echo "✅ SSH key already exists at ~/.ssh/id_ed25519.pub"
-else
-    echo "🔐 Creating a new SSH key..."
-    ssh-keygen -t ed25519 -C "roamioaaqil@gmail.com"
-    echo "✅ SSH key created."
-fi
-
-echo "📋 Your public SSH key:"
-cat ~/.ssh/id_ed25519.pub
-echo "👉 Please copy the above key and paste it into your GitHub SSH settings."
 
 # --------------- install VS Code (arm64)
 echo "💻 Checking for Visual Studio Code..."
@@ -75,5 +66,19 @@ if ! command -v ifconfig &>/dev/null; then
 else
     echo "✅ net-tools already installed."
 fi
+
+# --------------- create SSH key
+echo "🔐 Checking for existing SSH key..."
+if [ -f "$HOME/.ssh/id_ed25519.pub" ]; then
+    echo "✅ SSH key already exists at ~/.ssh/id_ed25519.pub"
+else
+    echo "🔐 Creating a new SSH key..."
+    ssh-keygen -t ed25519 -C "roamioaaqil@gmail.com"
+    echo "✅ SSH key created."
+fi
+
+echo "📋 Your public SSH key:"
+cat ~/.ssh/id_ed25519.pub
+print_red "👉 Please copy the above key and paste it into your GitHub SSH settings."
 
 echo "🎉 All tasks completed successfully!"
