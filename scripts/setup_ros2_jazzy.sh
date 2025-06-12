@@ -49,7 +49,15 @@ install_python_if_missing() {
 install_command_if_missing() {
     if ! command_exists "$1"; then
         echo "Installing $1..."
-        # Add installation command here
+        if [ "$1" = "arduino-cli" ]; then
+            cd /root
+            curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+            export PATH="/root/bin:$PATH"
+            echo 'export PATH="/root/bin:$PATH"' >> ~/.bashrc
+            /root/bin/arduino-cli core update-index
+            /root/bin/arduino-cli core install arduino:avr
+            cd -
+        fi
     else
         echo "$1 is already installed."
     fi

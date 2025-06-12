@@ -1,4 +1,6 @@
 all:
+	@echo "Setting up permissions..."
+	@chmod +x scripts/*.sh
 	@echo "Running scripts in order..."
 	@./scripts/what_i_installing.sh
 	@./scripts/setup.sh
@@ -6,10 +8,14 @@ all:
 	@./scripts/setup_ros2_jazzy.sh
 
 print:
+	@echo "Setting up permissions..."
+	@chmod +x scripts/*.sh
 	@echo "Printing installation details..."
 	@./scripts/what_i_installing.sh
 
 check:
+	@echo "Setting up permissions..."
+	@chmod +x scripts/*.sh
 	@echo "Checking installation..."
 	@./scripts/check_install.sh
 
