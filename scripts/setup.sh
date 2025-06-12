@@ -8,25 +8,18 @@ print_red() {
 echo "🔧 Checking for Git..."
 if ! command -v git &>/dev/null; then
     echo "📦 Installing Git..."
-    sudo apt update
-    sudo apt install -y git
+    sudo apt-get update
+    sudo apt-get install -y git
     echo "✅ Git installed."
 else
     echo "✅ Git is already installed."
 fi
 
-
 # --------------- install VS Code (arm64)
 echo "💻 Checking for Visual Studio Code..."
 if ! command -v code &>/dev/null; then
     echo "📦 Installing Visual Studio Code (for ARM64)..."
-    sudo apt update
-    sudo apt install -y wget gpg
-    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-    sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-    sudo sh -c 'echo "deb [arch=arm64] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-    sudo apt update
-    sudo apt install -y code
+    sudo snap install --classic code
     echo "✅ Visual Studio Code installed."
 else
     echo "✅ Visual Studio Code is already installed."
@@ -36,7 +29,11 @@ fi
 echo "🐳 Checking for Docker..."
 if ! command -v docker &>/dev/null; then
     echo "📦 Installing Docker..."
-    sudo apt update && sudo apt install -y docker.io
+    sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    sudo apt-get update
+    sudo apt-get install -y docker-ce
     sudo usermod -aG docker $USER
     echo "✅ Docker installed. Group updated for user: $USER"
     echo "🌀 You may need to log out and back in or run 'newgrp docker' to apply group changes."
@@ -48,8 +45,6 @@ fi
 echo "🔗 Checking for SSH server..."
 if ! systemctl is-active --quiet ssh; then
     echo "📦 Installing and starting OpenSSH server..."
-    sudo apt update
-    sudo apt install -y openssh-server
     sudo systemctl enable ssh
     sudo systemctl start ssh
     echo "✅ SSH server is running."

@@ -5,6 +5,9 @@ print_red() {
   echo -e "\033[0;31m$1\033[0m"
 }
 
+# Change to Desktop directory
+cd ~/Desktop
+
 echo "Cloning Roamio brain repository..."
 git clone git@github.com:roamio-RMG/roamio_brain.git
 echo "Finished cloning roamio_brain."
