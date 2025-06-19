@@ -22,7 +22,9 @@ arduino-cli upload --fqbn arduino:avr:mega -p /dev/ttyACM0 arduino_scripts/motor
 
 # Run ROS2 nodes
 echo "Starting LiDAR node..."
+source install/setup.bash
 ros2 run sllidar_ros2 sllidar_node --ros-args -p serial_port:=/dev/ttyUSB0 -p serial_baudrate:=256000 &
 
 echo "Starting motor controller..."
+source install/setup.bash
 ros2 run lidar lidar_motor_controller
