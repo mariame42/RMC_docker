@@ -8,6 +8,18 @@ echo "Setting up LiDAR demo..."
 # Change to the required directory
 cd ~/Desktop/roamio_brain/lidar
 
+# Check if serial devices exist
+echo "Checking serial devices..."
+if [ ! -e /dev/ttyACM0 ]; then
+    echo "ERROR: /dev/ttyACM0 (Arduino) not found. Please connect the Arduino device."
+    exit 1
+fi
+
+if [ ! -e /dev/ttyUSB0 ]; then
+    echo "ERROR: /dev/ttyUSB0 (LiDAR) not found. Please connect the LiDAR sensor."
+    exit 1
+fi
+
 # Make sure the two ports are open with proper permissions
 echo "Setting up serial port permissions..."
 sudo chmod 666 /dev/ttyACM0
